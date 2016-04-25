@@ -15,7 +15,7 @@ class Walker {
     int r = int(random(255));
     int g = int(random(255));
     int b = int(random(255));
-    int a = int(random(50));
+    int a = int(random(100));
     //strokeWeight(random(10));
     //stroke(r,g,b,a);
     

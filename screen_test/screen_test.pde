@@ -1,3 +1,5 @@
+import processing.pdf.*;
+
 // The Nature of Code
 // Daniel Shiffman
 // http://natureofcode.com
@@ -5,11 +7,19 @@
 Walker w;
 
 void setup() {
+  
+ 
+  //size(1200, 800);
   fullScreen();
+  //pixelDensity(2);
+  smooth();
+ beginRecord(PDF, "filename.pdf"); 
   background(255);
   // Create a walker object
   w = new Walker();
   codeInfo();
+
+  
  
   
 
@@ -77,7 +87,14 @@ void codeInfo(){
 }
 
 void draw() {
+ 
   // Run the walker object
   w.step();
   w.render();
+  
+  
+}
+
+void mouseClicked() {
+  endRecord();
 }
