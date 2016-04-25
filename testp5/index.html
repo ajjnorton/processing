@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>P5.js Testbed</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Yantramanav:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
+    <style>
+    * {
+        font-family: 'Yantramanav';
+    }
+    
+    li.L0,
+    li.L1,
+    li.L2,
+    li.L3,
+    li.L5,
+    li.L6,
+    li.L7,
+    li.L8 {
+        list-style-type: decimal !important
+    }
+    
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Experiment 0.1 <small>Backwards motion illusion</small></h1>
+        </div>
+        <dl>
+            <dt>Author</dt>
+            <dd>Anthony Norton</dd>
+            <dt>Date</dt>
+            <dd>23rd Mar 2016</dd>
+            <dt>Language</dt>
+            <dd>Javascript</dd>
+
+        </dl>
+        <p>The backward motion illusion occurs when the speed of rotation of an object is such that, in the interval between each iteration, the object moves nearly into the position it last occupied. If it occupies the exact position it previoulsy occupied, the object appears not to move</p>
+
+        <p>But if the object doesn't exactly match the interval (or a multiple of it), then the object will seem to turn slowly forward or backward. When the object is a little slow in reaching its previous position, the rotation appears to be backward; when the it arrives a fraction early, the visual impression is that the object is turning forward.</p>
+        <pre class="prettyprint linenums">
+			var x=0;
+			function setup(){
+				createCanvas(1200,600);
+			}
+			function draw(){
+				background(255);
+				var n = sin(x)*600;
+				ellipse(n+600,100,50,50);
+				x=x+0.01;
+			}
+		</pre>
+        
+    </div>
+    <div id="can"></div>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/addons/p5.sound.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
