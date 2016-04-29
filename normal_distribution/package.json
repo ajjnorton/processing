@@ -1,0 +1,14 @@
+{
+  "name": "normal_distribution",
+  "version": "1.0.0",
+  "description": "Normal distribution experiment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "anthony@modularity.works",
+  "license": "ISC",
+  "dependencies": {
+    "p5": "^0.4.24"
+  }
+}
