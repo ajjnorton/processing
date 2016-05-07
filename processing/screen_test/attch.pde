@@ -1,7 +1,7 @@
 // A random walker object!
 
 class Walker {
-  int x,y,choice;
+  int x,y;
 
   Walker() {
     x = width/2;
@@ -15,29 +15,24 @@ class Walker {
     int r = int(random(255));
     int g = int(random(255));
     int b = int(random(255));
-    int a = int(random(100));
+    int a = int(random(50));
     //strokeWeight(random(10));
-    stroke(r,g,b,100);
+    //stroke(r,g,b,a);
     
-    fill(r,g,b,a);
-    //int size=int(random(60));
-    int size=1;
+     fill(r,g,b,a);
+    int size=int(random(60));
      //int size=50;
     ellipse(x,y,size,size);
-  
-
-    
-      
     //rect(x, y, 50, 50);
-    //point(x,y);
+    
   }
 
   // Randomly move up, down, left, right, or stay in one place
   void step() {
     
-    choice = int(random(8));
+    int choice = int(random(8));
     //int z = int(random(50));
-    int z = 2;
+    int z = 50;
     
     if (choice == 0) {
       x+=z;
@@ -62,7 +57,7 @@ class Walker {
     }
     
     x = constrain(x,0,width-400);
-    y = constrain(y,20,height-20);
+    y = constrain(y,0,height-1);
 
   }
 }

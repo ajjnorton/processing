@@ -1,5 +1,3 @@
-import processing.pdf.*;
-
 // The Nature of Code
 // Daniel Shiffman
 // http://natureofcode.com
@@ -7,23 +5,12 @@ import processing.pdf.*;
 Walker w;
 
 void setup() {
-
+  fullScreen(1);
   pixelDensity(2);
-
-  
- 
-  //size(1200, 800);
-
-  fullScreen();
-  //pixelDensity(2);
-  smooth();
- beginRecord(PDF, "filename.pdf"); 
   background(255);
   // Create a walker object
   w = new Walker();
   codeInfo();
-
-  
  
   
 
@@ -45,8 +32,6 @@ void codeInfo(){
   + "The random numbers we get from from the random() function are not truly random and are therefore known as pseudo-random. "
   + "They are the result of a mathematical function. Over time it would yield a repeating pattern.";
   
-  int x_text =width-340;
-  
   int paraGap = 40;
   int y_titleGap = 20;
   
@@ -67,40 +52,33 @@ void codeInfo(){
   textFont(f,12);
   fill(112,138,144);
   textLeading(20);
-  text("Author",x_text,y_authorTitle,100,100);
+  text("Author",2200,y_authorTitle,100,100);
   
   fill(textCol);
-  text(author,x_text, y_authorText,300,100);
+  text(author,2200, y_authorText,300,100);
   
   
   fill(112,138,144);
-  text("Date",x_text,y_dateTitle,300,100);
+  text("Date",2200,y_dateTitle,300,100);
   
   fill(textCol);
-  text(date,x_text,y_dateText,300,100);
+  text(date,2200,y_dateText,300,100);
   
   fill(112,138,144);
-  text("Title",x_text,y_titleTitle,300,300);
+  text("Title",2200,y_titleTitle,300,300);
 
   fill(textCol);
-  text(title,x_text,y_titleText,300,300);
+  text(title,2200,y_titleText,300,300);
   
   fill(112,138,144);
-  text("Description",x_text,y_descTitle,300,300);
+  text("Description",2200,y_descTitle,300,300);
   
   fill(textCol);
-  text(desc,x_text,y_descText,300,300); 
+  text(desc,2200,y_descText,300,300); 
 }
 
 void draw() {
- 
   // Run the walker object
   w.step();
   w.render();
-  
-  
-}
-
-void mouseClicked() {
-  endRecord();
 }
