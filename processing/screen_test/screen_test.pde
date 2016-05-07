@@ -6,7 +6,7 @@ Walker w;
 
 void setup() {
   fullScreen(1);
-  pixelDensity(2);
+  //pixelDensity(2);
   background(255);
   // Create a walker object
   w = new Walker();

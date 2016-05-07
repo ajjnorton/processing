@@ -2,7 +2,7 @@ float[] population = new float[12];
 
 void setup(){
   fullScreen(1);
-  pixelDensity(2);
+  //pixelDensity(2);
   background(255);
   
   codeInfo();

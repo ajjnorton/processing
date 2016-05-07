@@ -5,7 +5,7 @@
 Walker w;
 
 void setup() {
-  fullScreen(P3D);
+  //fullScreen(P3D);
   // Create a walker object
   w = new Walker();
   background(255);

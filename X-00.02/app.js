@@ -3,7 +3,7 @@ var y=0;
 var o=0;
 
 function setup(){
-	var myCanvas = createCanvas(800, 400);
+	var myCanvas = createCanvas(windowWidth, 400);
 	myCanvas.parent('can');
 
 	
@@ -14,7 +14,7 @@ function draw(){
 	var n = sin(x)*100;
 	var c = cos(y)*100;
 	stroke(0);
-	ellipse(n+(400),c+200,50,50);
+	ellipse(n+(windowWidth/2),c+200,50,50);
 	x=x+0.05+o;
 	y=y+0.05+o;
 	o=o+0.001;
@@ -26,5 +26,6 @@ function draw(){
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  //resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(windowWidth/2, 400);
 }

@@ -8,7 +8,7 @@ Walker w;
 
 void setup() {
 
-  pixelDensity(2);
+  //pixelDensity(2);
 
   
  

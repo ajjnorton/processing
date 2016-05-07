@@ -89,54 +89,84 @@
     <div class="col-md-10">
         <div class="page-header">
             <h1 class="my-heading">Experiments in code </h1>
-            <h1 class="my-subheading">Backwards motion illusion</h1>
+            <h1 class="my-subheading">Random uniform movement</h1>
         </div>
         <div class="para">
-            <p class="lead">The backward motion illusion occurs when the speed of rotation of an object is such that, in the interval between each iteration, the object moves nearly into the position it last occupied. If it occupies the exact position it previously occupied, the object appears not to move.
-                <br>But if the object doesn't exactly match the interval (or a multiple of it), then the object will seem to turn slowly forward or backward. When the object is a little slow in reaching its previous position, the rotation appears to be backward; when the it arrives a fraction early, the visual impression is that the object is turning forward. The code below creates a single ellipse that orbits with constant acceleration.</p>
+            <p class="lead">Lets imagine a little single celled animal (Proto) in search of food. One strategy would be to search randomly in the hope of stumbling upon something tasty. This implementation uses the the random() function to generate a random value in the range zero to eight. Each of the eight values corresponds to a direction as defined by the points on a compass. For example 0=North, 1=North East, etc. For each iteration a random direction is chosen. At each iteration there is a probability 12.5% (1 in 8) that Proto will take a step in any given direction. The random numbers we get from from the random() function are uniform and are not truly random.</p>
         </div>
+         <div id="can"></div>
     </div>
-    <div id="can"></div>
+    <div class="col-md-12">
+    
+    </div>
+
     <div class="col-md-2 side-text2">
         <p class="side-text-f ">Fig 1.1</p>
         <p class="side-text-f ">Javascript Listing</p>
     </div>
     <div class="col-md-10">
         <pre class="prettyprint linenums">
-            var x=0;
-            var y=0;
-            var o=0;
+           
+        var y = 0;
+        var x = 0;
 
-            function setup(){
-                var myCanvas = createCanvas(windowWidth, windowHeight);
-                myCanvas.parent('can');
+        function setup() {
+            var myCanvas = createCanvas(windowWidth, 400);
+            myCanvas.parent('can');
+        }
+
+        function draw() {
+            //background(255);
+            step();
+        }
+
+        function windowResized() {
+            //resizeCanvas(windowWidth, windowHeight);
+            //resizeCanvas(windowWidth/2, 400);
+        }
+
+        function step() {
+            choice = int(random(8));
+            var z = 1;
+            if (choice == 0) {
+                // Move east
+                x += z;
+            } else if (choice == 1) {
+                // Move west
+                x -= z;
+            } else if (choice == 2) {
+                // Move north
+                y += z;
+            } else if (choice == 3) {
+                // Move south
+                y -= z;
+            } else if (choice == 4) {
+                // Move north east
+                y += z;
+                x += z;
+            } else if (choice == 5) {
+                // Move south west
+                y -= z;
+                x -= z;
+            } else if (choice == 6) {
+                // Move south east
+                y -= z;
+                x += z;
+            } else if (choice == 7) {
+                // Move north west
+                y += z;
+                x -= z;
             }
-
-            function draw(){
-                //background(255);
-                var n = sin(x)*100;
-                var c = cos(y)*100;
-                stroke(0);
-                ellipse(n+(windowWidth/2),c+200,50,50);
-                x=x+0.05+o;
-                y=y+0.05+o;
-                o=o+0.001;
-                stroke(255);
-                fill(0);
-                //text(o,100,100);
-                fill(255);
-
-            }
-
-            function windowResized() {
-              resizeCanvas(windowWidth, windowHeight);
-            }
+            //x = constrain(x,400,width);
+            y = constrain(y, -200, height);
+            stroke(0, 0, 0, 50);
+            ellipse(x + 400, y + height / 2, 10, 10);
+        }
         </pre>
     </div>
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/addons/p5.dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/addons/p5.sound.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.min.js"></script>
+   
+    <script src="../node_modules/p5/lib/p5.min.js"></script>
     <script src="app.js"></script>
 </body>
 
